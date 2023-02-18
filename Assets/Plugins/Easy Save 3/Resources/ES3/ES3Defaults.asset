@@ -36,6 +36,7 @@ MonoBehaviour:
     - CFXRDemo
     - CFXREditor
     - CFXRRuntime
+    - Cinemachine
     - EasyButtons
     - EasyButtons.Editor
     - KinoBloom.Runtime
