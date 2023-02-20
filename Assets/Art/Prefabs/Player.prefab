@@ -81,8 +81,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerMovementController: {fileID: 5783086463982449213}
-  playerSkillController: {fileID: 5783086464208562486}
   playerPhysicController: {fileID: 5783086464914707184}
+  invisibleSkillController: {fileID: 0}
 --- !u!114 &5783086463982449213
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -104,7 +104,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5783086464208562485}
-  - component: {fileID: 5783086464208562486}
+  - component: {fileID: 5783086464126799223}
   m_Layer: 0
   m_Name: SkillController
   m_TagString: Untagged
@@ -127,7 +127,7 @@ Transform:
   m_Father: {fileID: 5783086463982449203}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5783086464208562486
+--- !u!114 &5783086464126799223
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -136,14 +136,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 5783086464208562484}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b2631941d8e54453821fdaa7e5b5b6b2, type: 3}
+  m_Script: {fileID: 11500000, guid: 65ee176e6b4d4e50af4923c4bd4ac533, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   meshModel: {fileID: 3997914328060224847}
   invisStartParticle: {fileID: 0}
   duringInvisParticle: {fileID: 0}
   invisEndParticle: {fileID: 0}
-  dashParticle: {fileID: 0}
+  cooldownText: {fileID: 0}
 --- !u!1 &5783086464914707189
 GameObject:
   m_ObjectHideFlags: 0
