@@ -1,4 +1,5 @@
-﻿using Data.UnityObject;
+﻿using System.Collections;
+using Data.UnityObject;
 using Managers;
 using Signals;
 using UnityEngine;
@@ -18,21 +19,23 @@ namespace Controllers
         [SerializeField] private ParticleSystem dashParticle;
         
         private PlayerSkillData _playerSkillData;
-        private Coroutine _invisibleSkillTimer;
-        private Coroutine _dashSkillTimer;
         
         private void Awake()
         {
             _playerSkillData = Resources.Load<PlayerSkillData>("Data/PlayerSkillData");
         }
         
-        public void OnInvisibleSkillUsed()
-        {
-            // invisStartParticle.Play();
-            meshModel.SetActive(false);
-            // invisEndParticle.Play();
-        }
 
+
+        private IEnumerator InvisibleSkillCooldown()
+        {
+            while (_playerSkillData.InvisibleSkillCooldown > 0)
+            {
+                
+                yield return new WaitForEndOfFrame();
+            }
+        }
+        
         public void OnDashSkillUsed()
         {
             /*

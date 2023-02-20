@@ -8,8 +8,8 @@ namespace Managers
     public class PlayerManager : MonoBehaviour
     {
         [SerializeField] private PlayerMovementController playerMovementController;
-        [SerializeField] private PlayerSkillController playerSkillController;
         [SerializeField] private PlayerPhysicController playerPhysicController;
+        [SerializeField] private InvisibleSkillController invisibleSkillController;
         
         private void OnEnable() => SubscribeEvents();
         private void OnDisable() => UnSubscribeEvents();
@@ -21,7 +21,7 @@ namespace Managers
             InputSignals.Instance.onRunSkillRevoked += OnRunSkillRevoked;
             InputSignals.Instance.onInteractSkillUsed += OnInteractSkillUsed;
             InputSignals.Instance.onInvisibleSkillUsed += OnInvisibleSkillUsed;
-            InputSignals.Instance.onDashSkillUsed += OnDashSkillUsed;
+            // InputSignals.Instance.onDashSkillUsed += OnDashSkillUsed;
         }
 
         private void UnSubscribeEvents()
@@ -31,7 +31,7 @@ namespace Managers
             InputSignals.Instance.onRunSkillRevoked -= OnRunSkillRevoked;
             InputSignals.Instance.onInteractSkillUsed -= OnInteractSkillUsed;
             InputSignals.Instance.onInvisibleSkillUsed -= OnInvisibleSkillUsed;
-            InputSignals.Instance.onDashSkillUsed -= OnDashSkillUsed;
+            // InputSignals.Instance.onDashSkillUsed -= OnDashSkillUsed;
         }
 
         private void OnInputTaken(InputParams inputParams)
@@ -42,8 +42,8 @@ namespace Managers
         private void OnRunSkillUsed() => playerMovementController.OnRunSkillUsed();
         private void OnRunSkillRevoked() => playerMovementController.OnRunSkillRevoked();
         private void OnInteractSkillUsed() => playerPhysicController.Interact();
-        private void OnInvisibleSkillUsed() => playerSkillController.OnInvisibleSkillUsed();
-        private void OnDashSkillUsed() => playerSkillController.OnDashSkillUsed();
+        private void OnInvisibleSkillUsed() => invisibleSkillController.UseSpell();
+        // private void OnDashSkillUsed() => playerSkillController.OnDashSkillUsed();
 
         public Vector3 ReturnPosition() => transform.position;
     }
